@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: vibecheck-db
+    environment:
+      POSTGRES_USER: vibeuser
+      POSTGRES_PASSWORD: vibepass
+      POSTGRES_DB: vibedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - vibecheck-data:/var/lib/postgresql/data
+    networks:
+      - vibecheck-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/vibedb
+      SPRING_DATASOURCE_USERNAME: vibeuser
+      SPRING_DATASOURCE_PASSWORD: vibepass
+    depends_on:
+      - postgres
+    networks:
+      - vibecheck-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - vibecheck-network
+
+volumes:
+  vibecheck-data:
+
+networks:
+  vibecheck-network:
