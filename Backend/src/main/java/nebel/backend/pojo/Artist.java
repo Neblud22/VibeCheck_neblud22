@@ -1,6 +1,9 @@
 package nebel.backend.pojo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,5 +11,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Artist {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long artistId;
 
+    private String firstName;
+    private String lastName;
+    private String description;
+    private String imageUrl;
 }
