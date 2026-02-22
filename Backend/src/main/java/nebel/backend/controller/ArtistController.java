@@ -1,6 +1,7 @@
 package nebel.backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import nebel.backend.dto.ArtistDto;
 import nebel.backend.pojo.Artist;
 import nebel.backend.service.ArtistService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ public class ArtistController {
     private final ArtistService artistService;
 
     @GetMapping
-    public List<Artist> getAllArtists() {
+    public List<ArtistDto> getAllArtists() {
         return artistService.getAllArtists();
     }
 
