@@ -23,6 +23,7 @@ public class ArtistService {
 
     public Artist getArtistById(Long id) {
         return artistRepo.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Artist not found"));
+                .orElseThrow(() -> new NoSuchElementException("Artist not found"))
+                .getDto();
     }
 }
