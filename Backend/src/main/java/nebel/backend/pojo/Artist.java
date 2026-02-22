@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import nebel.backend.dto.ArtistDto;
 
 @Entity
 @Data
@@ -19,4 +20,13 @@ public class Artist {
     private String lastName;
     private String description;
     private String imageUrl;
+
+    public ArtistDto getDto() {
+        return new ArtistDto(
+                this.firstName,
+                this.lastName,
+                this.description,
+                this.imageUrl
+        );
+    }
 }
