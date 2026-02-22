@@ -25,7 +25,7 @@ public class ArtistController {
     }
 
     @GetMapping("/{artistId}")
-    public ArtistDto getArtistById(@PathVariable Long artistId) {
-        return artistService.getArtistById(artistId);
+    public ResponseEntity<ArtistDto> getArtistById(@PathVariable Long artistId) {
+        return ResponseEntity.ok(artistService.getArtistById(artistId));
     }
 }
