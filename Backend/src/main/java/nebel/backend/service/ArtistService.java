@@ -21,7 +21,7 @@ public class ArtistService {
                 .toList();
     }
 
-    public Artist getArtistById(Long id) {
+    public ArtistDto getArtistById(Long id) {
         return artistRepo.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Artist not found"))
                 .getDto();
