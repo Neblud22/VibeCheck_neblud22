@@ -19,8 +19,8 @@ public class EventController {
     private final EventService eventService;
 
     @GetMapping
-    public List<EventDto> getAllEvents() {
-        return eventService.getAllEvents();
+    public ResponseEntity<List<EventDto>> getAllEvents() {
+        return ResponseEntity.ok(eventService.getAllEvents());
     }
 
     @GetMapping("/{eventId}")
