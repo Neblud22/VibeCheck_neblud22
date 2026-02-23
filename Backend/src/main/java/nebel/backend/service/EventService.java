@@ -27,4 +27,11 @@ public class EventService {
                 .orElseThrow(() -> new NoSuchElementException("Event not found"))
                 .getDto();
     }
+
+    public List<EventDto> getEventsByArtist(Long artistId) {
+        return eventRepository.findByArtistArtistId(artistId)
+                .stream()
+                .map(Event::getDto)
+                .toList();
+    }
 }
