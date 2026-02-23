@@ -21,4 +21,6 @@ public class Event {
     private String location;
     private LocalDate eventDate;
     private String imageUrl;
+
+    private Artist artist;
 }
