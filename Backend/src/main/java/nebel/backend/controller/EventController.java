@@ -29,7 +29,7 @@ public class EventController {
     }
 
     @GetMapping("/artist/{artistId}")
-    public List<EventDto> getEventsByArtist(@PathVariable Long artistId) {
-        return eventService.getEventsByArtist(artistId);
+    public ResponseEntity<List<EventDto>> getEventsByArtist(@PathVariable Long artistId) {
+        return ResponseEntity.ok(eventService.getEventsByArtist(artistId));
     }
 }
