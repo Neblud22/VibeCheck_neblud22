@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import nebel.backend.dto.EventDto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,9 +21,13 @@ public class Event {
     private LocalDate eventDate;
     private String imageUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "artist_id")
-    private Artist artist;
+    @ManyToMany
+    @JoinTable(
+            name = "event_artists",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "artist_id")
+    )
+    private List<Artist> artists;
 
     public EventDto getDto() {
         return new EventDto(
