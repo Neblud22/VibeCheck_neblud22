@@ -1,10 +1,12 @@
 package nebel.backend.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
+@AllArgsConstructor
 public class EventDto {
     private String title;
     private String location;
