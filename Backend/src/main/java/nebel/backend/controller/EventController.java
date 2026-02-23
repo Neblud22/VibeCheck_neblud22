@@ -3,6 +3,7 @@ package nebel.backend.controller;
 import lombok.RequiredArgsConstructor;
 import nebel.backend.dto.EventDto;
 import nebel.backend.service.EventService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +24,8 @@ public class EventController {
     }
 
     @GetMapping("/{eventId}")
-    public EventDto getEventById(@PathVariable Long eventId) {
-        return eventService.getEventById(eventId);
+    public ResponseEntity<EventDto> getEventById(@PathVariable Long eventId) {
+        return ResponseEntity.ok(eventService.getEventById(eventId));
     }
 
     @GetMapping("/artist/{artistId}")
