@@ -1,9 +1,13 @@
 package nebel.backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import nebel.backend.dto.EventDto;
 import nebel.backend.service.EventService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
@@ -11,4 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventController {
 
     private final EventService eventService;
+
+    @GetMapping
+    public List<EventDto> getAllEvents() {
+        return eventService.getAllEvents();
+    }
 }
