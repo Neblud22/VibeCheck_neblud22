@@ -26,4 +26,9 @@ public class EventController {
     public EventDto getEventById(@PathVariable Long eventId) {
         return eventService.getEventById(eventId);
     }
+
+    @GetMapping("/artist/{artistId}")
+    public List<EventDto> getEventsByArtist(@PathVariable Long artistId) {
+        return eventService.getEventsByArtist(artistId);
+    }
 }
