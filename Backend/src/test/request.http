@@ -1,0 +1,21 @@
+GET http://localhost:8080/api/artists
+
+###
+
+GET http://localhost:8080/api/artists/1
+
+###
+
+GET http://localhost:8080/api/events
+
+###
+
+GET http://localhost:8080/api/events/1
+
+###
+
+GET http://localhost:8080/api/events/artist/5
+
+###
+
+GET http://localhost:8080/api/ratings/event/5
