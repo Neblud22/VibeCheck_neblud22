@@ -43,7 +43,7 @@ const EventDetail: React.FC = () => {
             <Typography>
                 Average Rating:{" "}
                 {event.ratings.length > 0
-                    ? calcAvg(event.ratings).toFixed(1)
+                    ? calcAvg(event.ratings).toFixed(1) + "⭐"
                     : "N/A"}
             </Typography>
 
@@ -59,7 +59,7 @@ const EventDetail: React.FC = () => {
                 </Stack>
             </Stack>
 
-            <Button variant="contained" sx={{ mt: 2 }} onClick={() => navigate(-1)}>
+            <Button variant="contained" sx={{ mt: 2 }} onClick={() => navigate("/events")}> {/* oder -1 */}
                 Back
             </Button>
         </Stack>

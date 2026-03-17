@@ -99,8 +99,6 @@ const RatingDialog: React.FC<RatingDialogProps> = ({ open, eventId, onClose, onS
                             />
                         )}
                     />
-
-
                     <Controller
                         name="comment"
                         control={control}

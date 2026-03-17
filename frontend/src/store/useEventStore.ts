@@ -48,8 +48,8 @@ export const useEventStore = create<EventStore>((set, get) => ({
         let total = 0;
         ratings.forEach(r => {
             total += r.stars;
-        })
-        return total / ratings.length;
+        });
+        return parseFloat((total / ratings.length).toFixed(2));
     },
     fetchEvents: async() => {
         try {

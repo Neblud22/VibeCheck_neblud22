@@ -50,6 +50,7 @@ const EventOverview: React.FC = () => {
             <FormControl sx={{ minWidth: 200, mb: 2 }}>
                 <InputLabel>Sort By</InputLabel>
                 <Select
+                    sx={{background: "#ffffff"}}
                     value={sortBy}
                     label="Sort By"
                     onChange={(e) => setSortBy(e.target.value)}
@@ -62,6 +63,7 @@ const EventOverview: React.FC = () => {
             </FormControl>
             <Grid container spacing={{ xs: 1, md: 3 }}>
                 {sortedEvents.map((event) => (
+                    <Grid size={{ xs: 1, md: 4 }} key={event.id}>
                         <Card key={event.id} sx={{ maxWidth: 500, display: "flex", flexDirection: "column" }}>
                             <CardMedia
                                 component="img"
@@ -85,9 +87,10 @@ const EventOverview: React.FC = () => {
                                     {new Date(event.eventDate).toLocaleDateString()}
                                 </Typography>
 
-                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                <Typography variant="body2" sx={{ mt: 1, display: "flex", alignItems: "center", gap: 0.5 }}>
                                     Average Rating:{" "}
                                     {calcAvg(event.ratings)}
+                                    ⭐ {/* <StarIcon fontSize="small"/> */}
                                 </Typography>
                             </CardContent>
 
@@ -110,6 +113,7 @@ const EventOverview: React.FC = () => {
                                 </Button>
                             </CardActions>
                         </Card>
+                    </Grid>
                 ))}
 
                 {selectedEventId && (
@@ -119,6 +123,7 @@ const EventOverview: React.FC = () => {
                         onClose={() => setOpenRating(false)}
                         onSubmitted={() => setOpenRating(false)}
                     />
+
                 )}
             </Grid>
         </>
